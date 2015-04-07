@@ -14,6 +14,7 @@ double bank = 10000;
    // return bank;
  // }
   
+
   public double calcinvest(double investnum){
     if(investnum <= bank){
     if( new Random().nextDouble() <= 0.90 ) { 
@@ -35,6 +36,7 @@ double bank = 10000;
   }
   
   public double calcgamble(double gamblenum){
+    if(gamblenum <= bank){
     if( new Random().nextDouble() <= 0.50 ) { 
       double gambleprofit = gamblenum; 
       bank += gambleprofit; 
@@ -44,11 +46,16 @@ double bank = 10000;
       bank = bank - gamblenum;
       System.out.println("You lost" + " " + "$" + gamblenum);
     }
-    System.out.println("Your current balance is" + " " + "$" + bank); 
+    System.out.println("Your current balance is" + " " + "$" + bank);
+    }
+     else{
+      System.out.println("Insufficient funds. Transaction cancelled.");
+    }
     return bank; 
   }
     
   public double calchustle(double hustlenum){
+    if(hustlenum <= bank){
     if( new Random().nextDouble() <= 0.80 ) { 
       double hustleprofit = hustlenum * 0.3; 
       bank += hustleprofit; 
@@ -59,12 +66,40 @@ double bank = 10000;
       System.out.println("You broke even");
     }
     System.out.println("Your current balance is:" + "" + "$" + bank); 
+    }
+    else{
+      System.out.println("Insufficient funds. Transaction cancelled.");
+    }
     return bank; 
   }
   
   public String calcextreme(String extremeval){
+    //String lowercase = extremeval.toLowerCase();
+    if(extremeval == "yes"){
+      if( new Random().nextDouble() <= 0.70 ){
+        double medicalbill = 2500; 
+        bank = bank - medicalbill; 
+        System.out.println("EPIC FAIL! You sausage, you just lost" + " " + "$" + medicalbill + " " + "on medical expenses!");
+      }
+      else{
+        double extremecholo = 5000; 
+        bank += extremecholo; 
+        System.out.println("THAT WAS RADICAL! You escaped with only a few scratches. You just made 5G's.");
+        System.out.println("Your current balance is" + " " + "$" + bank);
+    }
+    }
+   else{
+     System.out.println("Maybe next time."); 
+    }
     return extremeval; 
   }
+  
+  public double brokecheck(){
+  if(bank == 0.0){
+    System.out.println("YOU LOST IT ALL! HOW COULD YOU!");
+  }
+  return bank;
+}
   
   //public double checkbank(double bank){
   //if(bank == 0.0){
@@ -73,6 +108,8 @@ double bank = 10000;
   //return bank; 
   
 }
+
+
 
   
 
