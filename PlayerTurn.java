@@ -11,6 +11,11 @@ double stockprice = 47.23;
 double initstockprice = 0;  
 double sharesnum = 0; 
 
+public double bankround(){
+  bank = (double)Math.round(bank * 100) / 100;
+  return bank; 
+}
+
   public double calcinvest(double investnum){
     if(investnum <= bank){
     if( new Random().nextDouble() <= 0.90 ) { 
@@ -101,9 +106,11 @@ double sharesnum = 0;
    //System.out.println("MarketFlux called.");
       if( new Random().nextDouble() <= 0.50 ) { 
         stockprice = stockprice + Math.random() * 5; 
+        stockprice = (double)Math.round(stockprice * 100) / 100;
       }
       else{
         stockprice = stockprice - Math.random() * 5; 
+        stockprice = (double)Math.round(stockprice * 100) / 100;
       } 
       System.out.println("Stock price is $" + stockprice);
       return bank; 
